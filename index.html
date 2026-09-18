@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Snowflake × SpaceXAI Berlin</title>
+  <title>SpaceXAI x Snowflake Berlin</title>
   <style>
     :root {
-      --bg: #f7f7f4;
-      --fg: #26251e;
-      --muted: rgba(38, 37, 30, 0.6);
-      --accent: #f54e00;
-      --card: #f2f1ed;
-      --line: #e1e0db;
+      --bg: #f0f4f9;
+      --card: #fff;
+      --fg: #202124;
+      --muted: #5f6368;
+      --line: #dadce0;
+      --accent: #07342d;
+      --required: #d93025;
     }
     * { box-sizing: border-box; }
     body {
@@ -19,149 +20,157 @@
       min-height: 100dvh;
       background: var(--bg);
       color: var(--fg);
-      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font: 16px/1.5 "Google Sans", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     main {
-      width: min(640px, calc(100% - 40px));
-      margin: 48px auto 80px;
+      width: min(640px, calc(100% - 32px));
+      margin: 16px auto 64px;
     }
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 0 0 8px;
+    .banner {
+      display: block;
+      width: 100%;
+      border-radius: 8px 8px 0 0;
+      object-fit: cover;
     }
+    .header, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px 24px 20px;
+      margin-bottom: 12px;
+    }
+    .header {
+      border-radius: 0 0 8px 8px;
+      border-top: 0;
+      padding-top: 18px;
+    }
+    .header-wrap { margin-bottom: 12px; }
     h1 {
       font-size: 32px;
-      font-weight: 550;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      font-weight: 400;
+      letter-spacing: 0;
       margin: 0 0 12px;
     }
     .lede {
-      color: var(--muted);
-      margin: 0 0 28px;
+      margin: 0 0 16px;
+      color: var(--fg);
     }
-    form {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      display: grid;
-      gap: 18px;
-    }
-    label {
-      display: grid;
-      gap: 6px;
+    .req-note {
+      margin: 0;
+      color: var(--required);
       font-size: 14px;
-      font-weight: 550;
     }
+    label, .q {
+      display: block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .req { color: var(--required); }
     .hint {
+      display: block;
       font-weight: 400;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
+      margin: 4px 0 12px;
     }
-    input[type="text"],
     input[type="email"],
-    textarea,
-    input[type="file"] {
+    input[type="text"],
+    textarea {
       width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
       color: var(--fg);
-      padding: 11px 12px;
+      padding: 8px 0;
       font: inherit;
     }
-    textarea { min-height: 110px; resize: vertical; }
-    .checks {
-      display: grid;
-      gap: 8px;
-      font-weight: 400;
+    input:focus, textarea:focus {
+      outline: none;
+      border-bottom-color: var(--accent);
     }
-    .checks label {
+    textarea { min-height: 72px; resize: vertical; }
+    input[type="file"] {
+      margin-top: 4px;
+      font: inherit;
+    }
+    .actions {
       display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-weight: 400;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
     }
-    .checks input { margin-top: 4px; }
-    button {
+    button[type="submit"] {
       appearance: none;
       border: 0;
-      border-radius: 10px;
+      border-radius: 4px;
       background: var(--accent);
       color: #fff;
       font: inherit;
-      font-weight: 600;
-      padding: 12px 16px;
+      font-weight: 500;
+      padding: 10px 24px;
       cursor: pointer;
     }
-    button:hover { filter: brightness(0.95); }
-    footer {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
+    button[type="reset"] {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      font: inherit;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <main>
-    <p class="eyebrow">24 September · Berlin enablement</p>
-    <h1>Snowflake × SpaceXAI Berlin</h1>
-    <p class="lede">Short pre-event survey for AI Leaders and attendees. No Google sign-in. Anyone with the link can respond.</p>
+    <div class="header-wrap">
+      <img class="banner" src="header.png" alt="SpaceXAI and Snowflake">
+      <div class="header">
+        <h1>SpaceXAI x Snowflake Berlin</h1>
+        <p class="lede">We're looking forward to meeting the team in Berlin. This short form (~2 min) helps us tailor the onsite: what to demo, what wins to celebrate, and what friction to come prepared for.</p>
+        <p class="req-note">* Indicates required question</p>
+      </div>
+    </div>
+
     <form action="https://formsubmit.co/cameron.canova@x.ai" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="Snowflake × SpaceXAI Berlin survey">
+      <input type="hidden" name="_subject" value="SpaceXAI x Snowflake Berlin">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://cameroncanova-spec.github.io/snowflake-berlin-survey/thanks.html">
 
-      <label>
-        Name
-        <input type="text" name="name" required autocomplete="name">
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" required autocomplete="email">
-      </label>
-      <label>
-        Team / role
-        <span class="hint">Optional</span>
-        <input type="text" name="team_role" autocomplete="organization-title">
-      </label>
-      <fieldset style="border:0;padding:0;margin:0">
-        <legend style="font-size:14px;font-weight:550;margin-bottom:8px">Which parts are you coming to?</legend>
-        <div class="checks">
-          <label><input type="checkbox" name="sessions" value="Lunch with power users"> Lunch with power users (12:00–13:00)</label>
-          <label><input type="checkbox" name="sessions" value="AI Leaders session"> AI Leaders session</label>
-          <label><input type="checkbox" name="sessions" value="Main session"> Main session</label>
-          <label><input type="checkbox" name="sessions" value="Wine and cheese"> Wine and cheese</label>
-        </div>
-      </fieldset>
-      <label>
-        Questions you want addressed
-        <span class="hint">What should we make sure we cover on the 24th?</span>
-        <textarea name="questions" required></textarea>
-      </label>
-      <label>
-        Feature requests
-        <span class="hint">Optional. Product gaps, workflow pain, or things you want on the roadmap.</span>
-        <textarea name="feature_requests"></textarea>
-      </label>
-      <label>
-        What do you want to walk away with?
-        <span class="hint">Session goals or desired outcomes.</span>
-        <textarea name="session_goals"></textarea>
-      </label>
-      <label>
-        Attach something for us to look at ahead of time
-        <span class="hint">Optional. Use case writeup, screenshot, or doc.</span>
-        <input type="file" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt,.md">
-      </label>
-      <button type="submit">Submit</button>
+      <div class="card">
+        <label for="email">Email <span class="req">*</span></label>
+        <input id="email" type="email" name="email" required autocomplete="email" placeholder="Your email">
+      </div>
+
+      <div class="card">
+        <label for="win">What's one concrete win Cursor has unlocked for you lately? <span class="req">*</span></label>
+        <span class="hint">A short story or sentence we can share: use case + outcome.</span>
+        <textarea id="win" name="win" required placeholder="Your answer"></textarea>
+      </div>
+
+      <div class="card">
+        <label for="learning">What are you most looking forward to learning onsite?</label>
+        <textarea id="learning" name="learning" placeholder="Your answer"></textarea>
+      </div>
+
+      <div class="card">
+        <label for="friction">Any product friction or asks we should come prepared for? (Optional)</label>
+        <textarea id="friction" name="friction" placeholder="Your answer"></textarea>
+      </div>
+
+      <div class="card">
+        <label for="files">Screenshots or examples (optional)</label>
+        <span class="hint">Upload up to 5 supported files. Max 10 GB per file.</span>
+        <input id="files" type="file" name="attachment" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.gif,.txt,.md">
+      </div>
+
+      <div class="actions">
+        <button type="submit">Submit</button>
+        <button type="reset">Clear form</button>
+      </div>
     </form>
-    <footer>Responses go to Cam at SpaceXAI. This is a public form, not a Google Form, so Snowflake Workspace rules will not block it.</footer>
   </main>
 </body>
 </html>
