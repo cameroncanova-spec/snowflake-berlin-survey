@@ -75,8 +75,7 @@
       margin: 4px 0 12px;
     }
     input[type="email"],
-    input[type="text"],
-    textarea {
+    input[type="text"] {
       width: 100%;
       border: 0;
       border-bottom: 1px solid var(--line);
@@ -86,11 +85,10 @@
       padding: 8px 0;
       font: inherit;
     }
-    input:focus, textarea:focus {
+    input:focus {
       outline: none;
       border-bottom-color: var(--accent);
     }
-    textarea { min-height: 72px; resize: vertical; }
     input[type="file"] {
       margin-top: 4px;
       font: inherit;
@@ -147,22 +145,22 @@
       <div class="card">
         <label for="win">What's one concrete win Cursor has unlocked for you lately? <span class="req">*</span></label>
         <span class="hint">A short story or sentence we can share: use case + outcome.</span>
-        <textarea id="win" name="win" required placeholder="Your answer"></textarea>
+        <input id="win" type="text" name="win" required placeholder="Your answer">
       </div>
 
       <div class="card">
         <label for="learning">What are you most looking forward to learning onsite?</label>
-        <textarea id="learning" name="learning" placeholder="Your answer"></textarea>
+        <input id="learning" type="text" name="learning" placeholder="Your answer">
       </div>
 
       <div class="card">
         <label for="friction">Any product friction or asks we should come prepared for? (Optional)</label>
-        <textarea id="friction" name="friction" placeholder="Your answer"></textarea>
+        <input id="friction" type="text" name="friction" placeholder="Your answer">
       </div>
 
       <div class="card">
         <label for="files">Screenshots or examples (optional)</label>
-        <span class="hint">Upload up to 5 supported files. Max 10 GB per file.</span>
+        <span class="hint">Upload up to 5 supported files. Max 1 GB per file.</span>
         <input id="files" type="file" name="attachment" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.gif,.txt,.md">
       </div>
 
